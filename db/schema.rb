@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215091756) do
+ActiveRecord::Schema.define(version: 20170215093037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name", default: ""
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string  "name",          default: ""
+    t.integer "department_id"
+    t.index ["department_id"], name: "index_projects_on_department_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -44,4 +54,5 @@ ActiveRecord::Schema.define(version: 20170215091756) do
     t.string "address",      default: ""
   end
 
+  add_foreign_key "projects", "departments"
 end
