@@ -3,7 +3,7 @@
 <ul>
   <% @departments.each do |department| %>
     <li>
-      <%= department.name %>
+      <%= link_to department.name, department_url(department) %>
     </li>
   <% end %>
 </ul>
