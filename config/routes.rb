@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :departments, only: [:index]
+  resources :departments, only: [:index, :show]
 end
