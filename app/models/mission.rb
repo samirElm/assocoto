@@ -4,4 +4,8 @@ class Mission < ApplicationRecord
   has_many :reports
   has_many :milestones
   has_many :missions_users
+
+  validates :project,  presence: true
+  validates :title,    presence: true
+  validates :deadline, presence: true
 end
