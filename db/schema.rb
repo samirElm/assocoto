@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215093839) do
+ActiveRecord::Schema.define(version: 20170215094416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20170215093839) do
     t.datetime "deadline"
     t.integer  "project_id"
     t.index ["project_id"], name: "index_missions_on_project_id", using: :btree
+  end
+
+  create_table "missions_users", force: :cascade do |t|
+    t.integer "mission_id"
+    t.integer "user_id"
+    t.index ["mission_id"], name: "index_missions_users_on_mission_id", using: :btree
+    t.index ["user_id"], name: "index_missions_users_on_user_id", using: :btree
   end
 
   create_table "projects", force: :cascade do |t|
@@ -63,5 +70,7 @@ ActiveRecord::Schema.define(version: 20170215093839) do
   end
 
   add_foreign_key "missions", "projects"
+  add_foreign_key "missions_users", "missions"
+  add_foreign_key "missions_users", "users"
   add_foreign_key "projects", "departments"
 end
