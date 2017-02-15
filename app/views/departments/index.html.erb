@@ -1,1 +1,9 @@
-<h1>hey</h1>
+<h1>Pôles</h1>
+
+<ul>
+  <%= @departments.each do |department| %>
+    <li>
+      <%= department.name %>
+    </li>
+  <% end %>
+</ul>
