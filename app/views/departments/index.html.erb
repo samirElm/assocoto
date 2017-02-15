@@ -1,0 +1,9 @@
+<h1>Pôles</h1>
+
+<ul>
+  <% @departments.each do |department| %>
+    <li>
+      <%= link_to department.name, department_url(department) %>
+    </li>
+  <% end %>
+</ul>
