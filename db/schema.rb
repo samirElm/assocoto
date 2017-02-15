@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215095234) do
+ActiveRecord::Schema.define(version: 20170215095615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "departments", force: :cascade do |t|
     t.string "name", default: ""
+  end
+
+  create_table "milestones", force: :cascade do |t|
+    t.datetime "date"
+    t.string   "title",      default: ""
+    t.integer  "mission_id"
+    t.index ["mission_id"], name: "index_milestones_on_mission_id", using: :btree
   end
 
   create_table "missions", force: :cascade do |t|
@@ -77,6 +84,7 @@ ActiveRecord::Schema.define(version: 20170215095234) do
     t.string "address",      default: ""
   end
 
+  add_foreign_key "milestones", "missions"
   add_foreign_key "missions", "projects"
   add_foreign_key "missions_users", "missions"
   add_foreign_key "missions_users", "users"
