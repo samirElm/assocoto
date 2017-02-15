@@ -7,6 +7,7 @@
       <% project.missions.each do |mission| %>
         <p><%= mission.title %></p>
       <% end %>
+      <%= link_to "Créer une mission", new_project_mission_path(project) %>
     </li>
   <% end %>
 </ul>
