@@ -5,7 +5,7 @@
     <li>
       <%= project.name %>
       <% project.missions.each do |mission| %>
-        <p><%= mission.title %></p>
+        <p><%= link_to mission.title, project_mission_path(project, mission) %></p>
       <% end %>
       <%= link_to "Créer une mission", new_project_mission_path(project) %>
     </li>

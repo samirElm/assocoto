@@ -1,12 +1,16 @@
 class MissionsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    @mission = load_mission
+  end
+
   def new
-    @mission = set_project.missions.build
+    @mission = load_project.missions.build
   end
 
   def create
-    @mission = set_project.missions.build(missions_params)
+    @mission = load_project.missions.build(missions_params)
 
     if @mission.save
       flash[:notice] = "La mission a bien été créée"
@@ -25,7 +29,11 @@ class MissionsController < ApplicationController
     params.require(:mission).permit(:title, :description, :deadline)
   end
 
-  def set_project
+  def load_mission
+    Mission.find(params[:id])
+  end
+
+  def load_project
     Project.find(params[:project_id])
   end
 end
