@@ -19,8 +19,28 @@
               <%= link_to "Créer une mission pour le projet #{project.name.downcase}", new_project_mission_path(project), class: "btn btn-primary" %>
               <% project.missions.each do |mission| %>
                 <%= link_to project_mission_path(project, mission) do %>
-                  <div class="card card-inline">
-                    <%= mission.title %>
+                  <div class="card-inline">
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <%= mission.title %>
+                      </div>
+                      <div class="col-xs-6">
+                        <% mission.users.each do |user| %>
+                          <%= user.first_name %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <%= mission.description %>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <%= mission.milestones.count %> mises à jour
+                      </div>
+                      <div class="col-xs-6">
+                        <%= t(mission.deadline.strftime('%A')) %>
+                      </div>
+                    </div>
                   </div>
                 <% end %>
               <% end %>
