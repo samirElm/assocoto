@@ -19,6 +19,4 @@ class MissionsControllerTest < ActionDispatch::IntegrationTest
     get new_project_mission_url(project)
     assert_response :success
   end
-
-
 end
