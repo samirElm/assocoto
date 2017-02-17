@@ -1,9 +1,18 @@
-<h1>Pôles</h1>
-
-<ul>
-  <% @departments.each do |department| %>
-    <li>
-      <%= link_to department.name, department_url(department) %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row padding-top-medium">
+    <% @departments.each do |department| %>
+      <div class="col-xs-12 col-sm-6">
+        <%= link_to department_url(department) do %>
+          <div class="card">
+            <%= image_tag 'test-department.jpg', class: "card-img center-cropped" %>
+            <div class="card-content text-center">
+              <div class="card-title">
+                <%= department.name %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

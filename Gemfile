@@ -17,6 +17,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'cocoon'
+gem 'rails-i18n'
 
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources'
