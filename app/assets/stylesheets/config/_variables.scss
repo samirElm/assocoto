@@ -6,16 +6,6 @@
 $base-font: "Source Sans Pro", "sans-serif", "400";
 $header-font: $base-font;
 
-// Local fonts (uncomment following lines)
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
-
 // Font-size and line-height
 $base-size: 16px;
 $base-height: 1.4;
@@ -37,5 +27,5 @@ $gray-light: #f8f8f8;
 $gray-dark: #f8f8f8;
 $gray-border: #e8ebef;
 
-$primary-dark: green;
-$primary-light: green;
+$primary-dark: #A2DED0;
+$primary-light: #4ECDC4;
