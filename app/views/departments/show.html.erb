@@ -41,8 +41,9 @@
                         <%= pluralize(mission.milestones.count, 'mise') %> à jour
                       </div>
                       <div class="col-xs-6 text-right">
-                        <%= t(mission.deadline.strftime('%A')) + mission.deadline.strftime(' %d ') + t(mission.deadline.strftime('%B')) %>
-                        à <%= mission.deadline.strftime('%Hh%M') %>
+                        <div class="card-mission-deadline">
+                          <%= t(mission.deadline.strftime('%A')) + mission.deadline.strftime(' %d ') + t(mission.deadline.strftime('%B')).first(4) %>. à <%= mission.deadline.strftime('%Hh%M') %>
+                        </div>
                       </div>
                     </div>
                   </div>
