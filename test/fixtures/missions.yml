@@ -5,6 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  id: 1
   title: "Brocante d'hiver"
   deadline: "2017-01-01T00:00:00+00:00"
   project_id: 1

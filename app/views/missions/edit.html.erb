@@ -1,4 +1,4 @@
-<h1>Nouvelle mission pour le projet : <%= @mission.project.name %></h1>
+<h1>Modifier la mission : <%= @mission.title %></h1>
 
 <%= simple_form_for [:project, @mission] do |f| %>
   <%= f.input :title %>
