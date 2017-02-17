@@ -1,13 +1,32 @@
-<h1>Pôle <%= @department.name %></h1>
-
-<ul>
-  <% @department.projects.each do |project| %>
-    <li>
-      <%= project.name %>
-      <% project.missions.each do |mission| %>
-        <p><%= link_to mission.title, project_mission_path(project, mission) %></p>
-      <% end %>
-      <%= link_to "Créer une mission", new_project_mission_path(project) %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+<!--   <h1>Pôle <%= @department.name %></h1> -->
+  <div class="row padding-top-medium">
+    <div class="col-xs-3">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabs-left">
+          <% @department.projects.each_with_index do |project, index| %>
+            <li class="<%= 'active' if index == 0%>">
+              <a href="#<%= to_id(project.name.downcase) %>" data-toggle="tab"><%= project.name %></a>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+    <div class="col-xs-9">
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <% @department.projects.each_with_index do |project, index| %>
+            <div class="tab-pane <%= 'active' if index == 0 %>" id="<%= to_id(project.name.downcase) %>">
+              <%= link_to "Créer une mission pour le projet #{project.name.downcase}", new_project_mission_path(project), class: "btn btn-primary" %>
+              <% project.missions.each do |mission| %>
+                <%= link_to project_mission_path(project, mission) do %>
+                  <div class="card card-inline">
+                    <%= mission.title %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
