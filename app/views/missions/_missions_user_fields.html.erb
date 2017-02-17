@@ -1,0 +1,4 @@
+<div class="nested-fields">
+  <%= f.association :user, label_method: :first_name, prompt: 'Choisissez un adhérent', label: false %>
+  <%= link_to_remove_association "remove user", f %>
+</div>

@@ -26,7 +26,7 @@ class MissionsController < ApplicationController
   private
 
   def missions_params
-    params.require(:mission).permit(:title, :description, :deadline)
+    params.require(:mission).permit(:title, :description, :deadline, missions_users_attributes: [:id, :_destroy, :user_id])
   end
 
   def load_mission
