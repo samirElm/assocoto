@@ -15,11 +15,29 @@ class MissionsController < ApplicationController
     if @mission.save
       flash[:notice] = "La mission a bien été créée"
 
-      redirect_to department_url(@mission.project.department)
+      redirect_to department_path(@mission.project.department)
     else
       flash[:error] = "Une erreur est survenue"
 
       redirect_to :new
+    end
+  end
+
+  def edit
+    @mission = load_mission
+  end
+
+  def update
+    mission = load_mission
+
+    if mission.update(missions_params)
+      flash[:notice] = "La mission a bien été modifiée"
+
+      redirect_to project_mission_path(mission.project, mission)
+    else
+      flash[:error] = "Une erreur est survenue"
+
+      redirect_to :edit
     end
   end
 

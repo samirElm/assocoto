@@ -3,3 +3,5 @@
 <% @mission.users.each do |user| %>
   <p><%= user.first_name %></p>
 <% end %>
+
+<%= link_to "Modifier la mission", edit_project_mission_path(@mission.project, @mission) %>

@@ -1,0 +1,13 @@
+<h1>Modifier la mission : <%= @mission.title %></h1>
+
+<%= simple_form_for [:project, @mission] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :deadline %>
+  <div id="missions_users">
+    <%= f.simple_fields_for :missions_users do |missions_user| %>
+      <%= render 'missions_user_fields', f: missions_user %>
+    <% end %>
+    <%= link_to_add_association 'add a user', f, :missions_users %>
+  </div>
+  <%= f.button :submit %>
+<% end %>
