@@ -40,4 +40,23 @@
   width: 100%;
   object-fit: cover;
 }
-
+.card-inline {
+  padding: 20px;
+  border-bottom: 1px solid $gray-border;
+  transition: ease 0.3s;
+}
+.card-inline:hover {
+  background-color: rgba($primary-light, .2);
+  transition: ease 0.3s;
+}
+.card-inline:focus {
+  background-color: rgba($primary-light, .2);
+}
+.card-inline-mission {
+  h4 {
+    margin-top: 0px;
+  }
+  .card-mission-description {
+    color: $body-color;
+  }
+}

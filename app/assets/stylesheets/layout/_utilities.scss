@@ -12,6 +12,9 @@
 .padding-top-medium {
   padding-top: 40px;
 }
+.padding-left-small {
+  padding-left: 20px;
+}
 
 // Backgrounds
 .bg-black {
@@ -25,4 +28,19 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+
+// Bootstrap
+.col-no-padding {
+  [class*="col-"] {
+    padding: 0px;
+  }
+  .row {
+    margin: 0px;
+  }
+}
+
+// Borders
+.border-bottom-light {
+  border-bottom: 1px solid $gray-border;
 }
