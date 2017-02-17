@@ -1,14 +1,16 @@
-<h1>Nouvelle mission pour le projet : <%= @mission.project.name %></h1>
+<div class="container">
+  <h1>Nouvelle mission pour le projet : <%= @mission.project.name %></h1>
 
-<%= simple_form_for [:project, @mission] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :deadline %>
-  <%= f.input :description %>
-  <div id="missions_users">
-    <%= f.simple_fields_for :missions_users do |missions_user| %>
-      <%= render 'missions_user_fields', f: missions_user %>
-    <% end %>
-    <%= link_to_add_association 'add a user', f, :missions_users %>
-  </div>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for [:project, @mission] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :deadline %>
+    <%= f.input :description %>
+    <div id="missions_users">
+      <%= f.simple_fields_for :missions_users do |missions_user| %>
+        <%= render 'missions_user_fields', f: missions_user %>
+      <% end %>
+      <%= link_to_add_association 'add a user', f, :missions_users %>
+    </div>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
