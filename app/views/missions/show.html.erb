@@ -1,9 +1,20 @@
+<div class="border-bottom-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <h2><%= @mission.title %></h2>
+        <%= simple_format(@mission.description) %>
+        <%= link_to "Modifier la mission", edit_project_mission_path(@mission.project, @mission), class: "btn btn-primary" %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <% @mission.users.each do |user| %>
+          <p><%= user.first_name %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
-  <h1>Mission : <%= @mission.title %></h1>
 
-  <% @mission.users.each do |user| %>
-    <p><%= user.first_name %></p>
-  <% end %>
-
-  <%= link_to "Modifier la mission", edit_project_mission_path(@mission.project, @mission), class: "btn btn-primary" %>
 </div>
