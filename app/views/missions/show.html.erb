@@ -27,11 +27,14 @@
         </div>
         <div class="card-content">
           <div class="timeline-centered">
-            <% @mission.milestones.each do |milestone| %>
+            <% @mission.milestones.order(date: :desc).each do |milestone| %>
               <article class="timeline-entry">
                 <div class="timeline-entry-inner">
                   <div class="timeline-icon"><%= milestone.date.strftime('%d/%m') %></div>
                   <div class="timeline-label">
+                    <%= link_to edit_project_mission_milestone_path(@mission.project, @mission, milestone), class: "edit-icon" do %>
+                      <i class="fa fa-pencil-square-o"></i>
+                    <% end %>
                     <h5><%= milestone.title %></h5>
                     <p>TODO description milestone</p>
                   </div>

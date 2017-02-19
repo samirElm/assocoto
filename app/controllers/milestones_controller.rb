@@ -19,23 +19,23 @@ class MilestonesController < ApplicationController
     end
   end
 
-  # def edit
-  #   @mission = load_mission
-  # end
+  def edit
+    @milestone = load_milestone
+  end
 
-  # def update
-  #   mission = load_mission
+  def update
+    milestone = load_milestone
 
-  #   if mission.update(missions_params)
-  #     flash[:notice] = "La mission a bien été modifiée"
+    if milestone.update(milestones_params)
+      flash[:notice] = "La nouvelle a bien été modifiée"
 
-  #     redirect_to project_mission_path(mission.project, mission)
-  #   else
-  #     flash[:error] = "Une erreur est survenue"
+      redirect_to project_mission_path(milestone.mission.project, milestone.mission)
+    else
+      flash[:error] = "Une erreur est survenue"
 
-  #     redirect_to :edit
-  #   end
-  # end
+      redirect_to :edit
+    end
+  end
 
   private
 
@@ -45,5 +45,9 @@ class MilestonesController < ApplicationController
 
   def load_mission
     Mission.find(params[:mission_id])
+  end
+
+  def load_milestone
+    Milestone.find(params[:id])
   end
 end
