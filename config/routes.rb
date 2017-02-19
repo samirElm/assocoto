@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :departments, only: [:index, :show]
 
   resources :projects, only: :show do
-    resources :missions, only: [:show, :new, :create, :edit, :update]
+    resources :missions, only: [:show, :new, :create, :edit, :update] do
+      resources :milestones, only: [:new, :create, :edit, :update]
+    end
   end
 end

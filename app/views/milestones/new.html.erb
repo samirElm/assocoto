@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Créer une nouvelle</h1>
+
+  <%= simple_form_for [:project, :mission, @milestone] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :date %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
