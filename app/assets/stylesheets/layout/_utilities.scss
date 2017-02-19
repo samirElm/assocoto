@@ -15,6 +15,14 @@
 .padding-left-small {
   padding-left: 20px;
 }
+.padding-bottom-small {
+  padding-bottom: 20px;
+}
+
+// Margins
+.margin-bottom-small {
+  margin-bottom: 20px;
+}
 
 // Backgrounds
 .bg-black {
@@ -38,6 +46,14 @@
   .row {
     margin: 0px;
   }
+}
+
+// Fonts
+.font-primary-dark {
+  color: $primary-dark;
+}
+.font-gray {
+  color: $gray;
 }
 
 // Borders
