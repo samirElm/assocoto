@@ -57,6 +57,7 @@
               <li><%= report.date.strftime('%d/%m') %></li>
             <% end %>
           </ul>
+          <%= link_to "Créer un CR", new_project_mission_report_path(@mission.project, @mission) %>
         </div>
       </div>
     </div>
