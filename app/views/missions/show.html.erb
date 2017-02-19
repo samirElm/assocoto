@@ -1,9 +1,60 @@
+<div class="border-bottom-light padding-bottom-small margin-bottom-small">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <h2 class="font-primary-dark"><%= @mission.title %></h2>
+        <%= simple_format(@mission.description) %>
+        <% link_to "Modifier la mission", edit_project_mission_path(@mission.project, @mission), class: "btn btn-primary" %>
+        <p class="font-gray">
+          <%= t(@mission.deadline.strftime('%A')) + @mission.deadline.strftime(' %d ') + t(@mission.deadline.strftime('%B')).first(4) %>. à <%= @mission.deadline.strftime('%Hh%M') %>
+        </p>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <% @mission.users.each do |user| %>
+          <p><%= user.first_name %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
-  <h1>Mission : <%= @mission.title %></h1>
-
-  <% @mission.users.each do |user| %>
-    <p><%= user.first_name %></p>
-  <% end %>
-
-  <%= link_to "Modifier la mission", edit_project_mission_path(@mission.project, @mission), class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+      <div class="card card-no-hover">
+        <div class="card-header border-bottom-light text-center">
+          <h4>Nouvelles</h4>
+        </div>
+        <div class="card-content">
+          <div class="timeline-centered">
+            <% @mission.milestones.each do |milestone| %>
+              <article class="timeline-entry">
+                <div class="timeline-entry-inner">
+                  <div class="timeline-icon"><%= milestone.date.strftime('%d/%m') %></div>
+                  <div class="timeline-label">
+                    <h5><%= milestone.title %></h5>
+                    <p>TODO description milestone</p>
+                  </div>
+                </div>
+              </article>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card card-no-hover">
+        <div class="card-header border-bottom-light text-center">
+          <h4>Comptes rendus</h4>
+        </div>
+        <div class="card-content">
+          <ul>
+            <% @mission.reports.each do |report| %>
+              <li><%= report.date.strftime('%d/%m') %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

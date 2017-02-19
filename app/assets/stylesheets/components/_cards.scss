@@ -19,6 +19,12 @@
   filter: brightness(80%);
   transition: ease 0.3s;
 }
+.card-no-hover {
+  &:hover,
+  &:focus {
+    background: white;
+  }
+}
 .card-content {
   padding: 10px 20px;
 }
@@ -63,4 +69,7 @@
     color: $gray;
     font-weight: 100;
   }
+}
+.card-header {
+  color: $primary-dark;
 }
