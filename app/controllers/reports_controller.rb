@@ -19,23 +19,23 @@ class ReportsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @milestone = load_milestone
-  # end
+  def edit
+    @report = load_report
+  end
 
-  # def update
-  #   milestone = load_milestone
+  def update
+    report = load_report
 
-  #   if milestone.update(milestones_params)
-  #     flash[:notice] = "La nouvelle a bien été modifiée"
+    if report.update(reports_params)
+      flash[:notice] = "Le CR a bien été modifié"
 
-  #     redirect_to project_mission_path(milestone.mission.project, milestone.mission)
-  #   else
-  #     flash[:error] = "Une erreur est survenue"
+      redirect_to project_mission_path(report.mission.project, report.mission)
+    else
+      flash[:error] = "Une erreur est survenue"
 
-  #     redirect_to :edit
-  #   end
-  # end
+      redirect_to :edit
+    end
+  end
 
   private
 

@@ -54,7 +54,12 @@
         <div class="card-content">
           <ul>
             <% @mission.reports.each do |report| %>
-              <li><%= report.date.strftime('%d/%m') %></li>
+              <li>
+                <%= report.date.strftime('%d/%m') %>
+                <%= link_to edit_project_mission_report_path(@mission.project, @mission, report) do %>
+                  <i class="fa fa-pencil-square-o"></i>
+                <% end %>
+              </li>
             <% end %>
           </ul>
           <%= link_to "Créer un CR", new_project_mission_report_path(@mission.project, @mission) %>
