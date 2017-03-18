@@ -26,6 +26,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to departments_path do %>
+                <i class="fa fa-folder-open"></i> Pôles
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  Se déconnecter
               <% end %>

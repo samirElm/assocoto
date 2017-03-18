@@ -42,7 +42,9 @@
               </article>
             <% end %>
           </div>
-          <%= link_to "Créer une nouvelle", new_project_mission_milestone_path(@mission.project, @mission) %>
+          <%= link_to new_project_mission_milestone_path(@mission.project, @mission) do %>
+            <i class="fa fa-plus-circle"></i> Créer une nouvelle
+          <% end %>
         </div>
       </div>
     </div>
@@ -62,7 +64,9 @@
               </li>
             <% end %>
           </ul>
-          <%= link_to "Créer un CR", new_project_mission_report_path(@mission.project, @mission) %>
+          <%= link_to new_project_mission_report_path(@mission.project, @mission) do %>
+            <i class="fa fa-plus-circle"></i> Créer un compte-rendu
+          <% end %>
         </div>
       </div>
     </div>
